@@ -1,0 +1,50 @@
+<style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+  
+    .result {
+      font-family: Arial, sans-serif;
+      font-size: 28px;
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      opacity: 0;
+      animation: fade-in 1s ease-in-out forwards;
+    }
+  
+    .result.non-diabetic {
+      background-color: #66BB6A;
+      color: #FFF;
+    }
+  
+    .result.diabetic {
+      background-color: #EF5350;
+      color: #FFF;
+    }
+  
+    /* Define the fade-in animation */
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  
+  {% if result == 'NON DIABETIC' %}
+    <div class="result non-diabetic">
+      <h1>Person is: {{ result }}</h1>
+    </div>
+  {% else %}
+    <div class="result diabetic">
+      <h1>Person is: {{ result }}</h1>
+    </div>
+  {% endif %}
+  
